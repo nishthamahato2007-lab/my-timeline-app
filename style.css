@@ -1,0 +1,157 @@
+:root {
+    --dark-background: #080808;
+    --purple-glow: #a855f7;
+    --frosted-glass: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --main-white: #ffffff;
+    --dim-gray: #94a3b8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--dark-background);
+    background-image: radial-gradient(circle at 50% 0%, #1e1b4b, #080808);
+    color: var(--main-white);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.main-layout {
+    width: 100%;
+    max-width: 480px;
+}
+
+header { text-align: center; margin-bottom: 30px; margin-top: 20px; }
+.main-title { font-family: 'Space Grotesque', sans-serif; font-size: 2.2rem; letter-spacing: -1px; }
+.dot-accent { color: var(--purple-glow); }
+.tagline { color: var(--dim-gray); font-size: 0.9rem; }
+
+.input-card {
+    background: var(--frosted-glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* 1. This targets the calendar and clock icons in Chrome, Edge, and Safari */
+input::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* This flips black to white */
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+/* 2. Optional: Make the icon glow or turn purple when you hover over it */
+input::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+    filter: invert(1) sepia(100%) saturate(500%) hue-rotate(240deg); /* Changes white to purple */
+}
+
+/* 3. This ensures the text inside the input is also clearly white */
+input[type="date"], 
+input[type="time"] {
+    color-scheme: dark; /* Tells the browser to use its built-in dark theme for the picker */
+    color: white;
+}
+
+#saveButton {
+    background: var(--main-white);
+    color: black;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#saveButton:hover { background: var(--purple-glow); color: white; }
+
+.timeline-track {
+    position: relative;
+    padding-left: 30px;
+    border-left: 2px solid #c53bdd;
+}
+
+.single-event {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+
+.single-event::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    background: var(--purple-glow);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--purple-glow);
+}
+
+.event-box {
+    background: var(--frosted-glass);
+    border: 1px solid var(--border-color);
+    padding: 15px 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.event-details h3 { font-size: 1rem; margin-top: 3px; }
+.event-details span { color: var(--purple-glow); font-size: 0.75rem; font-weight: 600; }
+
+.remove-button {
+    background: transparent;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 1;
+}
+
+/* On small phones, stack them */
+@media (max-width: 400px) {
+    .input-group {
+        flex-direction: column;
+    }
+}
+
+.time-display {
+    color: var(--dim-gray);
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-left: 8px;
+}

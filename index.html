@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesque:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-layout">
+        <header>
+            <h1 class="main-title">TIMEline<span class="dot-accent">.</span></h1>
+            <p class="tagline">Your story, organized.</p>
+        </header>
+        <div class="input-card shadow-glow">
+            <input type="text" id="userInputTitle" placeholder="Event/Deadline Name" maxlength="40">
+            <div class="input-group">
+                <input type="date" id="userInputDate">
+                <input type="time" id="userInputTime">
+            </div>
+            <button id="saveButton">Add to My Life</button>
+        </div>
+        
+        <div id="displayArea" class="timeline-track">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
