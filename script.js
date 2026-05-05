@@ -31,7 +31,7 @@ const showEventsOnScreen = () => {
 const addNewItem = () => {
     const titleInput = document.getElementById('userInputTitle');
     const dateInput = document.getElementById('userInputDate');
-    const timeInput = document.getElementById('userInputTime'); // New input
+    const timeInput = document.getElementById('userInputTime'); 
 
     if (titleInput.value === "" || dateInput.value === "" || timeInput.value === "") {
         alert("Please fill in the title, date, and time! ⏰");
@@ -48,7 +48,7 @@ const addNewItem = () => {
     listOfEvents.push(newEventObject);
     showEventsOnScreen();
 
-    // Reset inputs
+    
     titleInput.value = "";
     dateInput.value = "";
     timeInput.value = "";
